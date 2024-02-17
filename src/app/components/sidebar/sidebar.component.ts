@@ -9,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
+
+  handleCreateNote = () => {
+    alert('Criar nota')
+  }
 }
