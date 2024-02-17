@@ -1,0 +1,36 @@
+.main {
+    padding: 8rem 2rem;
+
+    &_title {
+        color: var(--txt-color);
+    }
+
+    &_content {
+        display: flex;
+        gap: 2rem;
+        margin-top: 4rem;
+        
+        &_note {
+            width: 25rem;
+            height: 25rem;
+            border-radius: 2rem;
+            padding: 2rem;
+            background-color: rgb(226, 148, 32);
+            color: var(--txt-color);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &_txt {
+                height: 18rem;
+                overflow-x: hidden;
+            }
+
+            &_actions {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
