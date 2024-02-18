@@ -1,14 +1,22 @@
 <div class="main">
-    <h1 class="main_title">Notes</h1>
-
-    <ul class="main_content">
-        <li class="main_content_note">
-            <p class="main_content_note_txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, nostrum! Culpa modi totam, atque voluptatibus deleniti porro perspiciatis eum distinctio doloribus minus fuga harum quos debitis nesciunt ratione libero praesentium.</p>
-
-            <div class="main_content_note_actions">
-                <span class="main_content_note_button_date">Data</span>
-                <span class="main_content_note_button_edit">Editar</span>
-            </div>
-        </li>
-    </ul>
+    <div class="main_header">
+        <app-header></app-header>
+    </div>
+    
+    <div class="main_content">
+        <h1 class="main_content_title">Notes</h1>
+        
+        <ul class="main_content_list">
+            <li class="main_content_list_note">
+                <p class="main_content_list_note_txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    
+                <div class="main_content_list_note_actions">
+                    <span class="main_content_list_note_actions_date">18 de Fev, 2024</span>
+                    <span class="main_content_list_note_actions_edit">
+                        <ng-icon class="main_content_list_note_actions_edit_icon" name="ionCreateOutline" size="2rem" ></ng-icon>
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>

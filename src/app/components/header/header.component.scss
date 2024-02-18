@@ -1,0 +1,25 @@
+.header {
+    width: 100%;
+    height: 5rem;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 4rem;
+
+    &_search {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &_icon {
+            display: flex;
+            align-items: center;
+            color: #777;
+        }
+
+        &_txt {
+            color: #777;
+        }
+    }
+}
