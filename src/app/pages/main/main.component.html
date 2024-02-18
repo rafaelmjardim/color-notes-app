@@ -7,16 +7,21 @@
         <h1 class="main_content_title">Notes</h1>
         
         <ul class="main_content_list">
-            <li class="main_content_list_note">
-                <p class="main_content_list_note_txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    
-                <div class="main_content_list_note_actions">
-                    <span class="main_content_list_note_actions_date">18 de Fev, 2024</span>
-                    <span class="main_content_list_note_actions_edit">
-                        <ng-icon class="main_content_list_note_actions_edit_icon" name="ionCreateOutline" size="2rem" ></ng-icon>
-                    </span>
-                </div>
-            </li>
+
+            @for (note of noteList; track $index) {
+                <li class="main_content_list_note">
+                    <p class="main_content_list_note_txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        
+                    <div class="main_content_list_note_actions">
+                        <span class="main_content_list_note_actions_date">18 de Fev, 2024</span>
+                        <span class="main_content_list_note_actions_edit">
+                            <ng-icon class="main_content_list_note_actions_edit_icon" name="ionCreateOutline" size="2rem" ></ng-icon>
+                        </span>
+                    </div>
+                </li>
+            }@empty {
+                <span class="main_content_list_empty">Nenhuma nota cadastrada.</span>
+            }
         </ul>
     </div>
 </div>
