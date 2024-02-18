@@ -20,6 +20,11 @@
             background-color: #202020;
             font-size: 2.1rem;
             cursor: pointer;
+
+            &_icon {
+                display: flex;
+                align-items: center;
+            }
         }
     }
 }
