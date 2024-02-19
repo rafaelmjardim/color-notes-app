@@ -11,7 +11,6 @@ export class MainService {
 
   constructor(private http: HttpClient) { }
 
-
   getNotes = () => {
     return this.http.get(`${API_KEY}/notes.json`);
   }
@@ -23,6 +22,4 @@ export class MainService {
       color: 'blue'
     })
   }
-
-
 }
