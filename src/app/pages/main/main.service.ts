@@ -12,8 +12,16 @@ export class MainService {
   constructor(private http: HttpClient) { }
 
 
-  getApiData = () => {
-    return this.http.get(`${API_KEY}`);
+  getNotes = () => {
+    return this.http.get(`${API_KEY}/notes.json`);
+  }
+
+  postNotes = () => {
+    return this.http.post(`${API_KEY}/notes.json`, {
+      txt: 'teste2',
+      date: 'date',
+      color: 'blue'
+    })
   }
 
 

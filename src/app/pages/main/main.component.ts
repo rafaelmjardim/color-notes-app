@@ -4,6 +4,7 @@ import { ionCreateOutline } from "@ng-icons/ionicons";
 import { HeaderComponent } from '../../components/header/header.component';
 import { NoteType } from './main';
 import { MainService } from './main.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -20,16 +21,34 @@ export class MainComponent implements OnInit {
 
   noteList: NoteType[] = [];
 
+  fbNoteList: any = [];
+
   constructor (private main_service: MainService){}
 
   ngOnInit(): void {
     this.setNoteList();
+    this.onGetNotesList();
 
-    this.main_service.getApiData().subscribe(res => {
-      console.log('api', res);
+    
+  }
+  
+  onGetNotesList = () => {
+    this.main_service.getNotes().subscribe(notes => {      
+      this.fbNoteList = notes;   
+    });
+
+  const array = Object.keys(this.fbNoteList).map(key => {    
+    return this.fbNoteList[key];
+  })
+  console.log('array', array);
+   
+  }
+
+  handlePostTeste = () => {
+    this.main_service.postNotes().subscribe(res => {
+      console.log('postou', res);
       
     });
-    
   }
 
   setNoteList = () => {
@@ -51,5 +70,8 @@ export class MainComponent implements OnInit {
         date: '18 de FocusEvent, 2024'
       },
     ]
+
+    console.log(this.noteList);
+
   }
 }
