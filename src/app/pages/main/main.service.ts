@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment.development';
+
+const API_KEY = environment.API_KEY;
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
 
-  private API_KEY = 'https://pokeapi.co/api/v2/pokemon/ditto';
-
   constructor(private http: HttpClient) { }
 
 
   getApiData = () => {
-    return this.http.get(`${this.API_KEY}`);
+    return this.http.get(`${API_KEY}`);
   }
 
 
