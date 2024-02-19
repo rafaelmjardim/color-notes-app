@@ -10,12 +10,12 @@
 
             @for (note of noteList; track $index) {
                 <li class="main_content_list_note">
-                    <p class="main_content_list_note_txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p class="main_content_list_note_txt">{{note.value.txt}}</p>
         
                     <div class="main_content_list_note_actions">
-                        <span class="main_content_list_note_actions_date">18 de Fev, 2024</span>
+                        <span class="main_content_list_note_actions_date">{{note.value.date}}</span>
                         <span class="main_content_list_note_actions_edit">
-                            <ng-icon class="main_content_list_note_actions_edit_icon" name="ionCreateOutline" size="2rem" ></ng-icon>
+                            <ng-icon class="main_content_list_note_actions_edit_icon" name="ionCreateOutline" size="2rem"></ng-icon>
                         </span>
                     </div>
                 </li>
@@ -27,8 +27,5 @@
         <button (click)="handlePostTeste()">Post Teste</button>
 
         <span>lista</span>
-        <div>
-            {{fbNoteList}}
-        </div>
     </div>
 </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { ionCreateOutline } from "@ng-icons/ionicons";
 import { HeaderComponent } from '../../components/header/header.component';
-import { NoteType } from './main';
+import { NoteREQ, NoteType } from './main';
 import { MainService } from './main.service';
 import { map } from 'rxjs';
 
@@ -19,59 +19,30 @@ import { map } from 'rxjs';
 })
 export class MainComponent implements OnInit {
 
-  noteList: NoteType[] = [];
-
-  fbNoteList: any = [];
+  noteList: NoteREQ[] = [];
 
   constructor (private main_service: MainService){}
 
   ngOnInit(): void {
-    this.setNoteList();
     this.onGetNotesList();
-
-    
   }
   
   onGetNotesList = () => {
-    this.main_service.getNotes().subscribe(notes => {      
-      this.fbNoteList = notes;   
+    this.main_service.getNotes().subscribe(notesResponse => {      
+      //Recebe os dados do firebase api
+      const notesObject: any = notesResponse;   
+      
+      //converte os objetos em array de objetos
+      this.noteList = Object.keys(notesObject).map(key => {    
+        return {id: key, value: notesObject[key]};
+      })      
     });
-
-  const array = Object.keys(this.fbNoteList).map(key => {    
-    return this.fbNoteList[key];
-  })
-  console.log('array', array);
-   
   }
 
   handlePostTeste = () => {
     this.main_service.postNotes().subscribe(res => {
       console.log('postou', res);
-      
+      this.onGetNotesList();
     });
-  }
-
-  setNoteList = () => {
-    this.noteList = [
-      {
-        txt: 'Teste de nota por objeto',
-        date: '18 de FocusEvent, 2024'
-      },
-      {
-        txt: 'Teste de nota por objeto',
-        date: '18 de FocusEvent, 2024'
-      },
-      {
-        txt: 'Teste de nota por objeto',
-        date: '18 de FocusEvent, 2024'
-      },
-      {
-        txt: 'Teste de nota por objeto',
-        date: '18 de FocusEvent, 2024'
-      },
-    ]
-
-    console.log(this.noteList);
-
   }
 }
