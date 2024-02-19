@@ -38,11 +38,4 @@ export class MainComponent implements OnInit {
       })      
     });
   }
-
-  handlePostTeste = () => {
-    this.main_service.postNotes().subscribe(res => {
-      console.log('postou', res);
-      this.onGetNotesList();
-    });
-  }
 }
