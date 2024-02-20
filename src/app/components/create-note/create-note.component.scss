@@ -1,0 +1,51 @@
+.create_note {
+    padding: 2rem;
+    height: 100%;
+
+    &_form {
+        display: flex;
+        flex-direction: column;
+
+        &_txt {
+            min-height: 30rem;
+            border: none;
+            resize: none;
+            background-color: transparent;
+        }
+
+        textarea:focus, input:focus, select:focus {
+            box-shadow: 0 0 0 0;
+            border: 0 none;
+            outline: 0;
+        } 
+    }
+
+    &_actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 2rem;
+
+        &_cancelBtn, &_applyBtn {
+            width: 8rem;
+            height: 3rem;
+            border: none;
+            border-radius: 1rem;
+            cursor: pointer;
+        }
+
+        &_cancelBtn {
+            background-color: #575757;
+            color: #fff;
+        }
+
+        &_applyBtn {
+            background-color: #3366FF;
+            color: #fff;
+        }
+    }
+}

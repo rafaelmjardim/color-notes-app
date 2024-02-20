@@ -5,6 +5,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { NoteREQ, NoteType } from './main';
 import { MainService } from './main.service';
 import { map } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-main',
@@ -37,5 +38,18 @@ export class MainComponent implements OnInit {
         return {id: key, value: notesObject[key]};
       })      
     });
+  }
+
+  handleDeleteNote = (id: string) => {
+    this.main_service.deleteNote(id).subscribe({
+      next: (noteDeleteResponse) => {
+        console.log('Deletado com sucesso', noteDeleteResponse);
+        this.onGetNotesList();
+      },
+      error: (noteErrorResponse: HttpErrorResponse) => {
+        console.log('Erro', noteErrorResponse);
+        
+      }
+    })
   }
 }

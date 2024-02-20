@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
+import { NoteType } from './main';
 
 const API_KEY = environment.API_KEY;
 
@@ -15,11 +16,15 @@ export class MainService {
     return this.http.get(`${API_KEY}/notes.json`);
   }
 
-  postNotes = () => {
+  postNotes = (note: NoteType) => {
     return this.http.post(`${API_KEY}/notes.json`, {
-      txt: 'teste2',
-      date: 'date',
-      color: 'blue'
+      txt: note.txt,
+      date: note.date,
+      color: note.color ?? ''
     })
+  }
+
+  deleteNote = (id: string) => {
+    return this.http.delete(`${API_KEY}/notes/${id}.json`)
   }
 }

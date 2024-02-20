@@ -14,7 +14,7 @@
         
                     <div class="main_content_list_note_actions">
                         <span class="main_content_list_note_actions_date">{{note.value.date}}</span>
-                        <span class="main_content_list_note_actions_edit">
+                        <span class="main_content_list_note_actions_edit" (click)="handleDeleteNote(note.id)">
                             <ng-icon class="main_content_list_note_actions_edit_icon" name="ionCreateOutline" size="2rem"></ng-icon>
                         </span>
                     </div>
