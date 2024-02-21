@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MainService } from '../../pages/main/main.service';
 import { NoteType } from '../../pages/main/main';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create-note',
@@ -13,7 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './create-note.component.html',
   styleUrl: './create-note.component.scss'
 })
-export class CreateNoteComponent implements OnInit {
+export class CreateNoteComponent implements OnInit, OnDestroy {
+  subscription!: Subscription;
 
   formNote!: FormGroup;
 
@@ -26,6 +28,10 @@ export class CreateNoteComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+  }
+  
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   initForm = () => {
@@ -51,7 +57,7 @@ export class CreateNoteComponent implements OnInit {
     if (newNote.txt) {
       this.main_service.postNotes(newNote).subscribe({
         next: (notesResponse) => {
-          this.main_service.getNoteFunctionStream$.subscribe(getNotesFunction => {
+          this.subscription = this.main_service.getNoteFunctionStream$.subscribe(getNotesFunction => {
             if (getNotesFunction) {
               return getNotesFunction();
             }
