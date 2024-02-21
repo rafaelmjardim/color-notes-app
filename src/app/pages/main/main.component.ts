@@ -6,6 +6,7 @@ import { NoteREQ, NoteType } from './main';
 import { MainService } from './main.service';
 import { map } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-main',
@@ -13,6 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   imports: [
     HeaderComponent,
     NgIcon, 
+    NgStyle
   ],
   providers: [provideIcons({ionCreateOutline })],
   templateUrl: './main.component.html',

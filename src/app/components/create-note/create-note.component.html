@@ -1,7 +1,7 @@
 <div class="create_note">
     <form class="create_note_form" [formGroup]="formNote" (submit)="submitCreateNote()">
         <textarea class="create_note_form_txt" matInput placeholder="Adicione sua nota aqui..." formControlName="textArea"></textarea>
-        <input type="color" formControlName="colorInput">
+        <input class="create_note_form_color" type="color" formControlName="colorInput">
 
         <div class="create_note_actions">
             <button class="create_note_actions_cancelBtn" (click)="closeDialog()">Cancelar</button>

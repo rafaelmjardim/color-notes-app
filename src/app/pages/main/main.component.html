@@ -9,7 +9,7 @@
         <ul class="main_content_list">
 
             @for (note of noteList; track $index) {
-                <li class="main_content_list_note">
+                <li class="main_content_list_note" [ngStyle]="{'background-color': note.value.color}">
                     <p class="main_content_list_note_txt">{{note.value.txt}}</p>
         
                     <div class="main_content_list_note_actions">

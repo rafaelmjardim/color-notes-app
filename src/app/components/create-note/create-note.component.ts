@@ -60,6 +60,8 @@ export class CreateNoteComponent implements OnInit, OnDestroy {
       this.main_service.postNotes(newNote).subscribe({
         next: (notesResponse) => {
           this.subscription = this.main_service.getNoteFunctionStream$.subscribe(getNotesFunction => {
+            console.log('postado', notesResponse);
+            
             if (getNotesFunction) {
               return getNotesFunction();
             }

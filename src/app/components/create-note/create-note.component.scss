@@ -12,6 +12,9 @@
             resize: none;
             background-color: transparent;
         }
+        &_color {
+            z-index: 999;
+        }
 
         textarea:focus, input:focus, select:focus {
             box-shadow: 0 0 0 0;
