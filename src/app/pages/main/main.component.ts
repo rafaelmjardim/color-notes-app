@@ -26,6 +26,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.onGetNotesList();
+    this.main_service.setOnGetNoteListFunctionSubject(this.onGetNotesList);
   }
   
   onGetNotesList = () => {

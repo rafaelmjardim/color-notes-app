@@ -47,11 +47,19 @@ export class CreateNoteComponent implements OnInit {
       date: dateFormated,
       color: colorInput
     }
-
-    this.main_service.postNotes(newNote).subscribe({
-      next: (notesResponse) => {
-        this.dialog.closeAll();
-      }
-    })
+    
+    if (newNote.txt) {
+      this.main_service.postNotes(newNote).subscribe({
+        next: (notesResponse) => {
+          this.main_service.getNoteFunctionStream$.subscribe(getNotesFunction => {
+            if (getNotesFunction) {
+              return getNotesFunction();
+            }
+          })
+  
+          this.dialog.closeAll();
+        }
+      })
+    }
   }
 }
