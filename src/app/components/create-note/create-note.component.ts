@@ -31,7 +31,9 @@ export class CreateNoteComponent implements OnInit, OnDestroy {
   }
   
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   initForm = () => {
@@ -67,5 +69,9 @@ export class CreateNoteComponent implements OnInit, OnDestroy {
         }
       })
     }
+  }
+
+  closeDialog = () => {
+    this.dialog.closeAll();
   }
 }

@@ -26,7 +26,7 @@ export class SidebarComponent {
   handleOpenCreateNoteDialog = () => {
     this.dialog.open(CreateNoteComponent, {
       width: '35rem',
-      height: '40rem'
+      height: '35rem'
     })
   }
 }
